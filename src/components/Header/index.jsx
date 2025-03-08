@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <>
       <div className="d-flex justify-content-center fixed-top mt-3">
-        <nav className="navbar navbar-expand-lg bg-light-subtle rounded-5 d-inline-block w-auto p-2 Larger shadow">
+        <nav className="navbar navbar-expand-lg bg-light-subtle rounded-5 d-inline-block w-auto p-2 shadow-sm">
           <div className="container-fluid d-inline-flex">
             <button
               className="navbar-toggler"

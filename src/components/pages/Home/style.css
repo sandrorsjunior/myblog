@@ -1,0 +1,42 @@
+.rotated-img {
+  width: 400px; /* Adjust the size */
+  transform: rotate(-5deg); /* Slight rotation */
+  transition: transform 0.3s ease-in-out; /* Smooth effect */
+}
+
+.rotated-img:hover {
+  transform: rotate(0deg); /* Straighten when hovered */
+}
+
+.social-links a {
+  color: #333; /* Default icon color */
+  transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  color: #0073b1; /* Change color on hover */
+}
+
+.social-links a.github:hover {
+  color: #333;
+}
+
+.social-links a.medium:hover {
+  color: #000;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem; /* Adjust the size as needed */
+  text-align: justify;
+}
+
+.left-side{
+    padding-right: 150px;
+}
+
+h1{
+    font-weight:bolder;
+  font-size: 3rem; /* Adjust the size as needed */
+}

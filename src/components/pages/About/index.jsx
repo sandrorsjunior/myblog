@@ -27,7 +27,7 @@ export const About = () => {
         {/* Right Section: Profile Image & Social Media */}
         <div className="right-side col-md-4 col-12 d-flex flex-column align-items-center mt-4 mt-md-0">
           <img
-            src=".\src\assets\logo.png"
+            src="..\src\assets\logo.png"
             alt="Tharindu N."
             className="rounded-5 img-fluid mb-3 rotated-img"
           />

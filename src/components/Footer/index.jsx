@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <>
-    <hr className="mt-5 border-2" />
+    <hr className="mt-5 border-2 " />
     <footer className="py-2">
       <div className="container text-center">
         <div className="row justify-content-between">
