@@ -10,7 +10,7 @@ export const Home = () => {
     <section className="">
       <HowIAm/>
       <MainProjects/>
-      <div className="row mt-5">
+      <div className="row mt-5" style={{height:"400px"}} >
         <Articles />
         <WorkExperience />
       </div>

@@ -42,7 +42,7 @@ const workExperience = [
 
 export const WorkExperience = () => {
   return (
-    <div className="card shadow-sm col-md-4 col-12 border border-0 rounded-3" style={{ height: "400px", overflowY: "auto" }}>
+    <div className="card shadow-sm col-md-4 col-12 border border-0 rounded-3 overflow" style={{ height:"400px"}}>
       <div className="card-title d-flex mt-2">
         <FaBriefcase size={20} className="me-2"/>
         <h4 className="fs-6">Work Experience</h4>

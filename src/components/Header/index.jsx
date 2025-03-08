@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const navItems = [
-    { name: "Home", link: "#", active: true },
-    { name: "About", link: "#" },
-    { name: "Projects", link: "#" },
+    { name: "Home", link: "/", active: true },
+    { name: "About", link: "/about" },
+    { name: "Projects", link: "/projects" },
     { name: "Articles", link: "#", disabled: true },
     { name: "Contact", link: "#", disabled: true },
   ];
@@ -30,16 +31,15 @@ export const Header = () => {
               <ul className="navbar-nav">
                 {navItems.map((item, index) => (
                   <li className="nav-item" key={index}>
-                    <a
+                    <Link to={item.disabled ? "#" : item.link}
                       className={` text-secondary-emphasis nav-link ${item.active ? "active" : ""} ${item.disabled ? "disabled" : ""}`}
-                      href={item.disabled ? "#" : item.link}
                       role={item.disabled ? "button" : undefined}
                       aria-disabled={item.disabled}
                       tabIndex={item.disabled ? "-1" : "0"}
                       onClick={(e) => item.disabled && e.preventDefault()}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -47,6 +47,6 @@ export const Header = () => {
           </div>
         </nav>
       </div>
-    </>
+      </>
   );
 };

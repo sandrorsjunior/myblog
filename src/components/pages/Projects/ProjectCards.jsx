@@ -1,0 +1,55 @@
+import React from "react";
+import { FaLink } from "react-icons/fa"; // Link icon from react-icons
+import {data} from "./data";
+
+// ProjectCard Component to display a single project
+const ProjectCard = ({ logoSrc, title, description, link }) => {
+  return (
+    <div className="col-sm-12 col-md-6 col-lg-4 mt-5 ">
+      <div className="card mb-4 border border-0 rounded-5 card-projects p-2">
+        <div className="row justify-content-start">
+        <img
+          src={logoSrc}
+          alt={`${title} logo`}
+          className="card-img-top"
+          style={{ maxWidth: "70px", margin: "10px" }}
+        />
+        </div>
+        <div className="row card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{description}</p>
+          <div className="d-flex justify-content-between align-items-center">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline-secondary"
+            >
+              <FaLink /> View Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// MainProjects Component to display multiple projects
+export const ProjectCards = () => {
+
+  return (
+    <div className="container mt-5">
+      <div className="row">
+        {data.map((project, index) => (
+          <ProjectCard
+            key={index}
+            logoSrc={project.logoSrc}
+            title={project.title}
+            description={project.description}
+            link={project.link}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
