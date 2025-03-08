@@ -5,7 +5,7 @@ import {data} from "./data";
 // ProjectCard Component to display a single project
 const ProjectCard = ({ logoSrc, title, description, link }) => {
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4 mt-5 ">
+    <div className="col-sm-12 col-md-6 col-lg-4  ">
       <div className="card mb-4 border border-0 rounded-5 card-projects p-2">
         <div className="row justify-content-start">
         <img
@@ -38,7 +38,7 @@ const ProjectCard = ({ logoSrc, title, description, link }) => {
 export const ProjectCards = () => {
 
   return (
-    <div className="container mt-5">
+    <div className="">
       <div className="row">
         {data.map((project, index) => (
           <ProjectCard

@@ -6,7 +6,6 @@ import "./style.css"; // Ensure this file contains the CSS below
 export const Projects = () => {
   return (
     <section className="">
-      <DescriptionPage/>
       <ProjectCards/>
     </section>
   );
