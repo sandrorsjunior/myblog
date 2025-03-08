@@ -4,8 +4,8 @@ import { FaLink } from "react-icons/fa"; // Link icon from react-icons
 // ProjectCard Component to display a single project
 const ProjectCard = ({ logoSrc, title, description, link }) => {
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4 mt-5">
-      <div className="card shadow-sm mb-4 border border-0 rounded-3">
+    <div className="col-sm-12 col-md-6 col-lg-4 mt-5 ">
+      <div className="card mb-4 border border-0 rounded-5 card-projects p-2">
         <div className="row justify-content-start">
         <img
           src={logoSrc}
@@ -22,7 +22,7 @@ const ProjectCard = ({ logoSrc, title, description, link }) => {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline-primary"
+              className="btn btn-outline-secondary"
             >
               <FaLink /> View Project
             </a>
@@ -60,15 +60,7 @@ export const MainProjects = () => {
       description:
         "Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
       link: "https://example.com/project-2",
-    },
-    {
-      logoSrc:
-        "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-      title: "Project 3",
-      description:
-        "Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-      link: "https://example.com/project-3",
-    },
+    }
     // Add more projects here...
   ];
 
