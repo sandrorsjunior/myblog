@@ -13,9 +13,9 @@ function App() {
     <div className='container'>
       <Header/>
       <Content>
-        <About></About>
+        <About/>
       </Content>
-      <Footer></Footer>
+      <Footer/>
     </div>
   )
 }
