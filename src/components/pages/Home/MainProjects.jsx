@@ -1,6 +1,5 @@
 import React from "react";
 import { FaLink } from "react-icons/fa"; // Link icon from react-icons
-import "./style-MainProjects.css"; // Ensure your styles are in this CSS file
 
 // ProjectCard Component to display a single project
 const ProjectCard = ({ logoSrc, title, description, link }) => {
