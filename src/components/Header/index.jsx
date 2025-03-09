@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const navItems = [
-    { name: "Home", link: "/", active: true },
+    { name: "Home", link: "/"},
     { name: "About", link: "/about" },
     { name: "Projects", link: "/projects" },
-    { name: "Articles", link: "#", disabled: true },
-    { name: "Contact", link: "#", disabled: true },
+    { name: "Skill", link: "/skills" },
   ];
 
   return (
@@ -32,7 +31,7 @@ export const Header = () => {
                 {navItems.map((item, index) => (
                   <li className="nav-item" key={index}>
                     <Link to={item.disabled ? "#" : item.link}
-                      className={` text-secondary-emphasis nav-link ${item.active ? "active" : ""} ${item.disabled ? "disabled" : ""}`}
+                      className={`fw-medium fs-5 pe-3 ps-3 text-secondary-emphasis nav-link ${item.active ? "active" : ""} ${item.disabled ? "disabled" : ""}`}
                       role={item.disabled ? "button" : undefined}
                       aria-disabled={item.disabled}
                       tabIndex={item.disabled ? "-1" : "0"}

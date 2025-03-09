@@ -3,41 +3,29 @@ import { FaBriefcase} from "react-icons/fa";
 
 const workExperience = [
   {
-    company: "Facebook",
+    company: "Google",
     role: "Software Engineer",
     duration: "2019 - Present",
-    logo: "./facebook.png",
+    logo: "https://logo.clearbit.com/google.com",
   },
   {
-    company: "Twitter",
+    company: "Microsoft",
     role: "Software Engineer",
     duration: "2019 - Present",
-    logo: "./twitter.png",
+    logo: "https://logo.clearbit.com/microsoft.com",
   },
   {
-    company: "Facebook",
+    company: "Amazon",
     role: "Software Engineer",
     duration: "2019 - Present",
-    logo: "./facebook.png",
+    logo: "https://logo.clearbit.com/amazon.com",
   },
   {
-    company: "Twitter",
+    company: "Netflix",
     role: "Software Engineer",
     duration: "2019 - Present",
-    logo: "./twitter.png",
-  },
-  {
-    company: "Facebook",
-    role: "Software Engineer",
-    duration: "2019 - Present",
-    logo: "./facebook.png",
-  },
-  {
-    company: "Twitter",
-    role: "Software Engineer",
-    duration: "2019 - Present",
-    logo: "./twitter.png",
-  },
+    logo: "https://logo.clearbit.com/netflix.com",
+  }
 ];
 
 export const WorkExperience = () => {

@@ -5,7 +5,7 @@ import {Timeline} from "../../TimeLine/TimeLine"
 
 export const About = () => {
   return (
-    <section className="container">
+    <section className="">
       <div className="row justify-content-center align-items-start text-center text-md-start">
         {/* Left Section: Introduction */}
         <div className="left-side col-md-8 col-12 ">

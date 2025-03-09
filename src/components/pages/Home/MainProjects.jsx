@@ -7,12 +7,12 @@ const ProjectCard = ({ logoSrc, title, description, link }) => {
     <div className="col-sm-12 col-md-6 col-lg-4 mt-5 ">
       <div className="card mb-4 border border-0 rounded-5 card-projects p-2">
         <div className="row justify-content-start">
-        <img
-          src={logoSrc}
-          alt={`${title} logo`}
-          className="card-img-top"
-          style={{ maxWidth: "70px", margin: "10px" }}
-        />
+          <img
+            src={logoSrc}
+            alt={`${title} logo`}
+            className="card-img-top"
+            style={{ maxWidth: "70px", margin: "10px" }}
+          />
         </div>
         <div className="row card-body">
           <h5 className="card-title">{title}</h5>
@@ -39,28 +39,28 @@ export const MainProjects = () => {
   const projects = [
     {
       logoSrc:
-        "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
-      title: "Project 2",
-      description:
-        "Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-      link: "https://example.com/project-2",
-    },
-    {
-      logoSrc:
         "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-      title: "Project 3",
+      title: "Interactive Web App",
       description:
-        "Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-      link: "https://example.com/project-3",
+        "Built a dynamic web application using React and Node.js with real-time data updates.",
+      link: "https://example.com/web-app",
     },
     {
       logoSrc:
-        "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
-      title: "Project 2",
+        "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/typescript/typescript.png",
+      title: "Enterprise Dashboard",
       description:
-        "Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-      link: "https://example.com/project-2",
-    }
+        "Built a business intelligence dashboard with TypeScript and Angular.",
+      link: "https://example.com/dashboard",
+    },
+    {
+      logoSrc:
+        "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/go/go.png",
+      title: "Microservices Architecture",
+      description:
+        "Designed a scalable microservices system using Go and Kubernetes.",
+      link: "https://example.com/microservices",
+    },
     // Add more projects here...
   ];
 

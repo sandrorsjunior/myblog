@@ -5,8 +5,8 @@ import {data} from "./data";
 // ProjectCard Component to display a single project
 const ProjectCard = ({ logoSrc, title, description, link }) => {
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4  ">
-      <div className="card mb-4 border border-0 rounded-5 card-projects p-2">
+    <div className="col-sm-12 col-md-6 col-lg-4">
+      <div className="card mb-4 border border-0 rounded-5 card-projects p-2 shadow-sm">
         <div className="row justify-content-start">
         <img
           src={logoSrc}
