@@ -72,60 +72,6 @@ const colors = languages.map(() =>
 export const ProgrammingLanguagesGrid = () => {
   return (
     <div className="text-center mt-4">
-      <div className="row">
-        <div className="col">
-          <div className="card p-3 border border-0" style={{ height: "500px" }}>
-            <Bar
-              data={{
-                labels: languages.map((lang) => lang.name),
-                datasets: [
-                  {
-                    label: "Skill Level (%)",
-                    data: languages.map((lang) => lang.skill),
-                    backgroundColor: colors,
-                    borderRadius: 5,
-                  },
-                ],
-              }}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: "y", // Makes it horizontal
-                plugins: {
-                  title: {
-                    display: true,
-                    text: "Programming Language Skills",
-                    font: {
-                      size: 20,
-                    },
-                  },
-                  legend: {
-                    display: false, // Optional: hides legend since label is in the title
-                  },
-                },
-                scales: {
-                  x: {
-                    display: false,
-                    beginAtZero: true,
-                    max: 100,
-                    title: {
-                      display: false,
-                      text: "Skill Level (%)",
-                    },
-                  },
-                  y: {
-                    title: {
-                      display: false,
-                      text: "Languages",
-                    },
-                  },
-                },
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mt-4">
         {languages.map((language, index) => (
           <div className="col" key={index}>
