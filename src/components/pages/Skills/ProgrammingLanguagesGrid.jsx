@@ -1,8 +1,15 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Title } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Title,
+} from "chart.js";
 
-ChartJS.register(ArcElement, Tooltip, Title);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Title);
 
 const languages = [
   {
@@ -57,50 +64,95 @@ const languages = [
   },
 ];
 
+// Generate random colors once
+const colors = languages.map(() =>
+  "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")
+);
+
 export const ProgrammingLanguagesGrid = () => {
   return (
     <div className="text-center mt-4">
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
-        {languages.map((language, index) => (
-          <div className="col" key={index}>
-            <div className="card p-3  border border-0">
-              <Doughnut
-                data={{
-                  labels: [language.name, "Other"],
-                  datasets: [
-                    {
-                      data: [language.skill, 100 - language.skill],
-                      backgroundColor: ["#4CAF50", "#ffffff"],
-                      hoverBackgroundColor: ["#45A049", "#ccc"],
-                    },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: {
-                    title: {
-                      display: true,
-                      text: language.name,
+      <div className="row">
+        <div className="col">
+          <div className="card p-3 border border-0" style={{ height: "500px" }}>
+            <Bar
+              data={{
+                labels: languages.map((lang) => lang.name),
+                datasets: [
+                  {
+                    label: "Skill Level (%)",
+                    data: languages.map((lang) => lang.skill),
+                    backgroundColor: colors,
+                    borderRadius: 5,
+                  },
+                ],
+              }}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: "y", // Makes it horizontal
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Programming Language Skills",
+                    font: {
+                      size: 20,
                     },
                   },
-                }}
-              />
-            </div>
+                  legend: {
+                    display: false, // Optional: hides legend since label is in the title
+                  },
+                },
+                scales: {
+                  x: {
+                    display: false,
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                      display: false,
+                      text: "Skill Level (%)",
+                    },
+                  },
+                  y: {
+                    title: {
+                      display: false,
+                      text: "Languages",
+                    },
+                  },
+                },
+              }}
+            />
           </div>
-        ))}
+        </div>
       </div>
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
+
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mt-4">
         {languages.map((language, index) => (
           <div className="col" key={index}>
-            <div className="card p-3 shadow-sm  language-card ">
+            <div
+              className="card p-3 shadow-sm language-card"
+              style={{ borderTop: `4px solid ${colors[index]}` }}
+            >
               <img
                 src={language.logo}
                 alt={language.name}
                 className="card-img-top language-logo"
+                style={{ height: "80px", objectFit: "contain" }}
               />
               <div className="card-body">
                 <h5 className="card-title">{language.name}</h5>
+                <div className="progress mt-2">
+                  <div
+                    className="progress-bar"
+                    role="progressbar"
+                    style={{ width: `${language.skill}%` }}
+                    aria-valuenow={language.skill}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    {language.skill}%
+                  </div>
+                </div>
               </div>
             </div>
           </div>
