@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const navItems = [
-    { name: "Home", link: "/"},
+    { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Projects", link: "/projects" },
     { name: "Skill", link: "/skills" },
@@ -14,7 +14,15 @@ export const Header = () => {
     <>
       <div className="d-flex justify-content-center fixed-top mt-3">
         <nav className="navbar navbar-expand-lg bg-light-subtle rounded-5 d-inline-block w-auto p-2 shadow-sm">
-          <div className="container-fluid d-inline-flex">
+          <div className="container-fluid d-inline-flex align-items-center">
+            <Link to="/" className="navbar-brand me-4 d-flex align-items-center">
+              <img
+                src="src/assets/logo-header.png"
+                alt="Logo"
+                style={{ height: '40px' }} // Adjust size as needed
+              />
+            </Link>
+
             <button
               className="navbar-toggler"
               type="button"
@@ -26,11 +34,13 @@ export const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 {navItems.map((item, index) => (
                   <li className="nav-item" key={index}>
-                    <Link to={item.disabled ? "#" : item.link}
+                    <Link
+                      to={item.disabled ? "#" : item.link}
                       className={`fw-medium fs-5 pe-3 ps-3 text-secondary-emphasis nav-link ${item.active ? "active" : ""} ${item.disabled ? "disabled" : ""}`}
                       role={item.disabled ? "button" : undefined}
                       aria-disabled={item.disabled}
@@ -46,6 +56,6 @@ export const Header = () => {
           </div>
         </nav>
       </div>
-      </>
+    </>
   );
 };

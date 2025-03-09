@@ -25,12 +25,12 @@ export const Footer = () => {
             </li>
             <li className="ms-5">
               <a className="text-secondary-emphasis text-decoration-none" href="#">
-              Articles
+              Skills
               </a>
             </li>
             <li className="ms-5 me-5">
               <a className="text-secondary-emphasis text-decoration-none" href="#">
-              Contact
+              Resume
               </a>
             </li>
             </ul>
