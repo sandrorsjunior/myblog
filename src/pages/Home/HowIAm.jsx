@@ -8,23 +8,20 @@ export const HowIAm = () => {
         {/* Left Section: Introduction */}
         <div className="left-side col-md-8 col-12 ">
           <h1 className="mb-3 ">
-            I’m Tharindu N. I live in Sri Lanka, where I design the future.
+          Where logic meets creation
           </h1>
           <p>
-            I've worked on a variety of projects over the years, and I'm proud
-            of the progress I've made. Many of these projects are open-source
-            and available for others to explore and contribute to.
+          Welcome to my blog! I'm Sandro, a Brazilian currently living in the vibrant city of Braga, Portugal. 
+          My journey is a blend of technology, data, and a touch of discipline. I'm diving deep into robotics at the Polytechnic 
+          Institute of Cávado and Ave, building on a foundation of Systems Analysis and Development. Expect to find posts about my 
+          experiences, the tech I'm learning, and perhaps a few insights from my time in the Brazilian Navy and as a data analyst 
+          at Ford. Let's explore the world of robotics and technology together!
           </p>
-          <p>
-            If you're interested in any of the projects I've worked on, feel
-            free to check out the code and suggest improvements. Collaboration
-            is a great way to grow, and I'm always open to new ideas and
-            feedback.
-          </p>
+          
           {/* Social Media Links */}
           <div className="social-links d-flex justify-content-start">
             <a
-              href="https://www.linkedin.com/in/tharindu-n"
+              href="https://www.linkedin.com/in/sandrojr/"
               target="_blank"
               rel="noopener noreferrer"
               className="me-3 linkedin"
@@ -32,7 +29,7 @@ export const HowIAm = () => {
               <FaLinkedin size={35} />
             </a>
             <a
-              href="https://github.com/tharindu-n"
+              href="https://github.com/sandrorsjunior"
               target="_blank"
               rel="noopener noreferrer"
               className="me-3 github"
@@ -40,7 +37,7 @@ export const HowIAm = () => {
               <FaGithub size={35} />
             </a>
             <a
-              href="https://medium.com/@tharindu-n"
+              href="https://medium.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="medium me-3"
@@ -48,7 +45,7 @@ export const HowIAm = () => {
               <FaMedium size={35} />
             </a>
             <a
-              href="https://medium.com/@tharindu-n"
+              href="sandrorsjunior@outlook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="email"
@@ -62,7 +59,7 @@ export const HowIAm = () => {
         <div className="right-side col-md-4 col-12 d-flex flex-column align-items-center mt-4 mt-md-0">
           <img
             src="..\src\assets\logo.png"
-            alt="Tharindu N."
+            alt="image not found"
             className="rounded-5 img-fluid mb-3 rotated-img"
           />
         </div>
