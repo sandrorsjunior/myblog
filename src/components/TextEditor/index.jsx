@@ -48,7 +48,7 @@ export const TextEditor = () => {
 
   return (
     <div style={{ margin: '20px' }}>
-      <h2>Froala WYSIWYG Editor with Submit Button</h2>
+      <h2>New Post:</h2>
 
       <FroalaEditor
         tag="textarea"

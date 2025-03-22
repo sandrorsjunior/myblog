@@ -1,7 +1,7 @@
 import React from "react";
 import { FaLinkedin, FaGithub, FaMedium, FaEnvelope  } from "react-icons/fa";
 import "./style.css"; // Ensure this file contains the CSS below
-import {Timeline} from "../../TimeLine/TimeLine"
+import {Timeline} from "../../components/TimeLine/TimeLine"
 
 export const About = () => {
   return (
