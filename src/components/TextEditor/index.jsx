@@ -24,6 +24,13 @@ const tags = [
 
 export const TextEditor = () => {
   const [content, setContent] = useState("");
+  const [checkBoxCategorys, setCheckBoxCategorys] = useState([]);
+  const [metaDataPost, setMedaTadaPost] = useState({
+    title: "",
+    writer: "",
+    htmlContent: "",
+    tags: [],
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Called whenever you type/change something in the editor
@@ -31,17 +38,50 @@ export const TextEditor = () => {
     setContent(model);
   };
 
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+
+    if (checked) {
+      setCheckBoxCategorys([...checkBoxCategorys, value]);
+    } else {
+      setCheckBoxCategorys(
+        checkBoxCategorys.filter((category) => category !== value)
+      );
+    }
+  };
+
+  const handleMetaDataPost = (e) => {
+    const target = e.target;
+    const newmetaDataPost = { ...metaDataPost };
+    switch (target.id) {
+      case "inputTitleOfPost":
+        newmetaDataPost.title = target.value;
+        break;
+      case "inputWriter":
+        newmetaDataPost.writer = target.value;
+        break;
+      default:
+        console.log("field not found");
+    }
+    setMedaTadaPost(newmetaDataPost);
+  };
+
   // Function to send a POST request with the editor content
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    console.log(content);
+    setMedaTadaPost({
+      ...metaDataPost,
+      htmlContent: content,
+      tags: checkBoxCategorys,
+    });
+    console.log(metaDataPost);
     try {
       const response = await fetch("https://your-api-endpoint.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // or 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({ content: content }), // send the HTML content as JSON
+        body: JSON.stringify({ content: metaDataPost }), // send the HTML content as JSON
       });
 
       if (!response.ok) {
@@ -62,19 +102,29 @@ export const TextEditor = () => {
   return (
     <div>
       <div className="row mb-3">
-        <label for="inputTitleOfPost" className="col-sm-2 col-form-label">
+        <label htmlFor="inputTitleOfPost" className="col-sm-2 col-form-label">
           Title of Post
         </label>
         <div className="col-sm-10">
-          <input type="text" className="form-control" id="inputTitleOfPost" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputTitleOfPost"
+            onChange={handleMetaDataPost}
+          />
         </div>
       </div>
       <div className="row mb-3">
-        <label for="inputWriter" className="col-sm-2 col-form-label">
+        <label htmlFor="inputWriter" className="col-sm-2 col-form-label">
           Writer
         </label>
         <div className="col-sm-10">
-          <input type="text" className="form-control" id="inputWriter" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputWriter"
+            onChange={handleMetaDataPost}
+          />
         </div>
       </div>
 
@@ -86,11 +136,14 @@ export const TextEditor = () => {
             <div key={index} className="col-sm-2 offset-sm-2">
               <div className="form-check">
                 <input
+                  value={tag}
                   className="form-check-input"
                   type="checkbox"
-                  id="gridCheck1"
+                  id={`checkBox-${index}`}
+                  onChange={handleCheckboxChange}
+                  checked={checkBoxCategorys.includes(tag)}
                 />
-                <label className="form-check-label" for="gridCheck1">
+                <label className="form-check-label" htmlFor="gridCheck1">
                   {tag}
                 </label>
               </div>
