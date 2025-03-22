@@ -12,3 +12,27 @@
     max-width: 80px;
     margin: auto;
   }
+
+  body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .blog-header {
+    background-color: #343a40;
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  .blog-post img {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+  .blog-footer {
+    background-color: #343a40;
+    color: #ccc;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 4rem;
+  }

@@ -11,7 +11,7 @@ import {
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-export const Article = ({contentOfArticle}) => {
+export const Article = ({dangerouslySetInnerHTML}) => {
   const chartData = {
     labels: ['January', 'February', 'March', 'April'],
     datasets: [
@@ -42,8 +42,7 @@ export const Article = ({contentOfArticle}) => {
 
   return (
     <div className="my-5">
-      <article className="card shadow-sm">
-        {contentOfArticle}
+      <article className="" dangerouslySetInnerHTML={dangerouslySetInnerHTML}>
       </article>
     </div>
   );

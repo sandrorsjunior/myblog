@@ -12,6 +12,7 @@ import { Content } from "./components/content";
 import { Projects } from "../src/components/pages/Projects";
 import { Article } from "./components/pages/Article";
 import { dataContentOfArticleExemple } from "./components/pages/Article/dataExemple";
+import { TextEditor } from "./components/TextEditor";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/Article" element={<Article dangerouslySetInnerHTML={{ __html: dataContentOfArticleExemple }}/>} /> 
+            <Route path="/make-post" element={<TextEditor/>} />
           </Routes>
         </Content>
         <Footer />
