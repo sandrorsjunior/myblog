@@ -47,7 +47,7 @@ export const TextEditor = () => {
   };
 
   return (
-    <div style={{ margin: '20px' }}>
+    <div>
       <h2>New Post:</h2>
 
       <FroalaEditor
