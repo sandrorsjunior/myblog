@@ -1,7 +1,7 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaMedium, FaEnvelope  } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from "react-icons/fa";
 import "./style.css"; // Ensure this file contains the CSS below
-import {Timeline} from "../../components/TimeLine/TimeLine"
+import { Timeline } from "../../components/TimeLine/TimeLine";
 
 export const About = () => {
   return (
@@ -10,18 +10,14 @@ export const About = () => {
         {/* Left Section: Introduction */}
         <div className="left-side col-md-8 col-12 ">
           <h1 className="mb-3 ">
-            I’m Tharindu N. I live in Sri Lanka, where I design the future.
+            Blending analytical thinking, hands-on engineering, and a passion
+            for technology is the journey I'm sharing
           </h1>
           <p>
-            I've worked on a variety of projects over the years, and I'm proud
-            of the progress I've made. Many of these projects are open-source
-            and available for others to explore and contribute to.
+          With a background in Systems Analysis and Development and a stint as a data analyst at Ford Brazil, I've always been drawn to the power of data and technology. But my story also includes a chapter in the Brazilian Navy, where I learned the importance of discipline
           </p>
           <p>
-            If you're interested in any of the projects I've worked on, feel
-            free to check out the code and suggest improvements. Collaboration
-            is a great way to grow, and I'm always open to new ideas and
-            feedback.
+          Now, I'm diving headfirst into robotics at the Polytechnic Institute of Cávado and Ave, fueled by a passion for digital electronics and CNC.
           </p>
         </div>
 
@@ -34,9 +30,9 @@ export const About = () => {
           />
 
           {/* Social Media Links */}
-          <div className="social-links d-flex justify-content-center">
+          <div className="social-links d-flex justify-content-start">
             <a
-              href="https://www.linkedin.com/in/tharindu-n"
+              href="https://www.linkedin.com/in/sandrojr/"
               target="_blank"
               rel="noopener noreferrer"
               className="me-3 linkedin"
@@ -44,7 +40,7 @@ export const About = () => {
               <FaLinkedin size={35} />
             </a>
             <a
-              href="https://github.com/tharindu-n"
+              href="https://github.com/sandrorsjunior"
               target="_blank"
               rel="noopener noreferrer"
               className="me-3 github"
@@ -52,7 +48,7 @@ export const About = () => {
               <FaGithub size={35} />
             </a>
             <a
-              href="https://medium.com/@tharindu-n"
+              href="https://medium.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="medium me-3"
@@ -60,17 +56,17 @@ export const About = () => {
               <FaMedium size={35} />
             </a>
             <a
-              href="https://medium.com/@tharindu-n"
+              href="sandrorsjunior@outlook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="email"
             >
-              <FaEnvelope  size={35} />
+              <FaEnvelope size={35} />
             </a>
           </div>
         </div>
       </div>
-      <Timeline/>
+      <Timeline />
     </section>
   );
 };
