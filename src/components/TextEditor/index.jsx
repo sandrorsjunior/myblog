@@ -10,16 +10,16 @@ import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/themes/dark.min.css";
 
 const tags = [
-  "Technology",
-  "Health",
-  "Travel",
-  "Food",
-  "Education",
-  "Finance",
-  "Sports",
-  "Entertainment",
-  "Lifestyle",
-  "Science",
+  "TECHNOLOGY",
+    "HELTH",
+    "TRAVEL",
+    "FOOD",
+    "EDUCATION",
+    "FINANCE",
+    "SPORTS",
+    "ENTERTAINMENT",
+    "LIFESTYLE",
+    "SCIENCE"
 ];
 
 export const TextEditor = () => {
@@ -76,12 +76,12 @@ export const TextEditor = () => {
     });
     console.log(metaDataPost);
     try {
-      const response = await fetch("https://your-api-endpoint.com/submit", {
+      const response = await fetch("http://localhost:8080/postArticle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // or 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({ content: metaDataPost }), // send the HTML content as JSON
+        body: JSON.stringify(metaDataPost), // send the HTML content as JSON
       });
 
       if (!response.ok) {
