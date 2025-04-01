@@ -1,51 +1,33 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+export const Article = () => {
+  const [data, setData] = useState("");
+  const { id } = useParams();
 
-export const Article = ({dangerouslySetInnerHTML}) => {
-  const chartData = {
-    labels: ['January', 'February', 'March', 'April'],
-    datasets: [
-      {
-        label: 'Visitors',
-        data: [300, 500, 400, 600],
-        backgroundColor: '#0d6efd',
-      },
-    ],
-  };
-
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-    },
-  };
-
-  const tags = (items) => (
-    <div className="mb-3">
-      {items.map((tag, idx) => (
-        <span key={idx} className="badge bg-secondary me-1">{tag}</span>
-      ))}
-    </div>
-  );
+  useEffect(() => {
+    const getData = async () => {
+      let response = await fetch(`http://localhost:8080/postArticle?id=${id}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      let result = await response.json();
+      console.log(id);
+      setData(result);
+    };
+    getData();
+  }, []);
 
   return (
     <div className="my-5">
-      <article className="" dangerouslySetInnerHTML={dangerouslySetInnerHTML}>
-      </article>
+      {data ? (
+        <article
+          className=""
+          dangerouslySetInnerHTML={{ __html: data[0].htmlContent }}
+        ></article>
+      ) : (
+        <article className=""></article>
+      )}
     </div>
   );
 };
-
-

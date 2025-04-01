@@ -20,11 +20,9 @@ const ProjectCard = ({ logoSrc, title, description, link }) => {
           <p className="card-text">{description}</p>
           <div className="d-flex justify-content-between align-items-center">
             <Link
-              href={link}
-              target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline-secondary"
-              to={"/Article"}
+              to={`/Article/${link}`}
             >
               <FaLink /> View Project
             </Link>
@@ -54,14 +52,14 @@ export const ProjectCards = () => {
   return (
     <div className="">
       <div className="row">
-        {data.map((project, index) => {
+        {data.map((project) => {
           return (
             <ProjectCard
-              key={index}
+              key={project.id}
               logoSrc={project.logoSrc}
               title={project.title}
-              description={project.description}
-              link={project.link}
+              description={project.Description}
+              link={project.post}
             />
           );
         })}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -11,8 +10,6 @@ import { Footer } from "./components/Footer";
 import { Content } from "./components/content";
 import { Projects } from "./pages/Projects";
 import { Article } from "./pages/Article";
-import { dataContentOfArticleExemple } from "./pages/Article/dataExemple";
-import { TextEditor } from "./components/TextEditor";
 import { CreatePost } from "./pages/CreatePost";
 
 function App() {
@@ -26,7 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />  {/* Use 'element' */}
             <Route path="/projects" element={<Projects />} />
             <Route path="/skills" element={<Skills />} />
-            <Route path="/Article" element={<Article dangerouslySetInnerHTML={{ __html: dataContentOfArticleExemple }}/>} /> 
+            <Route path="/Article/:id" element={<Article />} /> 
             <Route path="/make-post" element={<CreatePost/>} />
           </Routes>
         </Content>
