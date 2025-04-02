@@ -11,15 +11,15 @@ import "froala-editor/css/themes/dark.min.css";
 
 const tags = [
   "TECHNOLOGY",
-    "HELTH",
-    "TRAVEL",
-    "FOOD",
-    "EDUCATION",
-    "FINANCE",
-    "SPORTS",
-    "ENTERTAINMENT",
-    "LIFESTYLE",
-    "SCIENCE"
+  "HELTH",
+  "TRAVEL",
+  "FOOD",
+  "EDUCATION",
+  "FINANCE",
+  "SPORTS",
+  "ENTERTAINMENT",
+  "LIFESTYLE",
+  "SCIENCE",
 ];
 
 export const TextEditor = () => {
@@ -28,6 +28,8 @@ export const TextEditor = () => {
   const [metaDataPost, setMedaTadaPost] = useState({
     title: "",
     writer: "",
+    logoSrc: "",
+    description: "",
     htmlContent: "",
     tags: [],
   });
@@ -60,6 +62,12 @@ export const TextEditor = () => {
       case "inputWriter":
         newmetaDataPost.writer = target.value;
         break;
+      case "inputLogoSrc":
+        newmetaDataPost.logoSrc = target.value;
+        break;
+      case "inputDescription":
+        newmetaDataPost.description = target.value;
+        break;
       default:
         console.log("field not found");
     }
@@ -69,19 +77,26 @@ export const TextEditor = () => {
   // Function to send a POST request with the editor content
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    setMedaTadaPost({
+    const updatedMetaDataPost = {
       ...metaDataPost,
       htmlContent: content,
       tags: checkBoxCategorys,
-    });
-    console.log(metaDataPost);
+    };
+    setMedaTadaPost(updatedMetaDataPost);
+    const projectResult = {
+      logoSrc: metaDataPost.logoSrc,
+      title: metaDataPost.title,
+      description: metaDataPost.description,
+      post: metaDataPost,
+    };
+    console.log(projectResult);
     try {
-      const response = await fetch("http://localhost:8080/postArticle", {
+      const response = await fetch("http://localhost:8080/project", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // or 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(metaDataPost), // send the HTML content as JSON
+        body: JSON.stringify(projectResult), // send the HTML content as JSON
       });
 
       if (!response.ok) {
@@ -127,6 +142,33 @@ export const TextEditor = () => {
           />
         </div>
       </div>
+      <div className="row mb-3">
+        <label htmlFor="inputLogoSrc" className="col-sm-2 col-form-label">
+          LogoSrc
+        </label>
+        <div className="col-sm-10">
+          <input
+            type="text"
+            className="form-control"
+            id="inputLogoSrc"
+            onChange={handleMetaDataPost}
+          />
+        </div>
+      </div>
+      <div className="row mb-3">
+        <label htmlFor="inputDescription" className="col-sm-2 col-form-label">
+          Description
+        </label>
+        <div className="col-sm-10">
+          <textarea
+            type="text"
+            className="form-control"
+            id="inputDescription"
+            rows="3"
+            onChange={handleMetaDataPost}
+          />
+        </div>
+      </div>
 
       <legend className="col-form-label col-sm-2 pt-0">Tags</legend>
 
@@ -162,6 +204,12 @@ export const TextEditor = () => {
           theme: "dark",
           heightMin: 200,
           toolbarSticky: false,
+          imageInsertButtons: ["imageByURL"], // Only allow inserting images by URL
+          imageUpload: false, // Prevents automatic image uploads
+          imagePaste: false, // Prevents pasting images as blobs
+          imageAllowedTypes: ["jpeg", "jpg", "png", "gif", "webp"],
+          imageEditButtons: ["imageAlign", "imageRemove"],
+          imageDefaultAlign: "center", // Default image alignment
         }}
       />
 

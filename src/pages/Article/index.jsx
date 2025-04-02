@@ -7,7 +7,7 @@ export const Article = () => {
 
   useEffect(() => {
     const getData = async () => {
-      let response = await fetch(`http://localhost:8080/postArticle?id=${id}`);
+      let response = await fetch(`http://localhost:8080/postArticle/${id}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -23,7 +23,7 @@ export const Article = () => {
       {data ? (
         <article
           className=""
-          dangerouslySetInnerHTML={{ __html: data[0].htmlContent }}
+          dangerouslySetInnerHTML={{ __html: data.htmlContent }}
         ></article>
       ) : (
         <article className=""></article>
