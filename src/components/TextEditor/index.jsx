@@ -77,32 +77,35 @@ export const TextEditor = () => {
   // Function to send a POST request with the editor content
   const handleSubmit = async () => {
     setIsSubmitting(true);
+  
+    // Create a fresh object with the latest state values
     const updatedMetaDataPost = {
       ...metaDataPost,
       htmlContent: content,
       tags: checkBoxCategorys,
     };
-    setMedaTadaPost(updatedMetaDataPost);
+  
+    // Use this object directly instead of waiting for state to update
     const projectResult = {
-      logoSrc: metaDataPost.logoSrc,
-      title: metaDataPost.title,
-      description: metaDataPost.description,
-      post: metaDataPost,
+      logoSrc: updatedMetaDataPost.logoSrc,
+      title: updatedMetaDataPost.title,
+      description: updatedMetaDataPost.description,
+      post: updatedMetaDataPost,
     };
-    console.log(projectResult);
+  
     try {
       const response = await fetch("http://localhost:8080/project", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // or 'application/x-www-form-urlencoded'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(projectResult), // send the HTML content as JSON
+        body: JSON.stringify(projectResult),
       });
-
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
+  
       const result = await response.json();
       console.log("Success:", result);
       alert("Content submitted successfully!");
